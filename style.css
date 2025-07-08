@@ -1,0 +1,195 @@
+html, body {
+  height: 100%;
+  margin: 0;
+  font-family: 'Book Antiqua', Georgia, serif;
+  color: white;
+  /* background-color: black; */ /* removido */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+
+}
+main {
+  flex: 1 0 auto; /* main cresce para preencher */
+  position: relative;
+  z-index: 10;
+  max-width: 800px;
+  margin: 0 auto;
+  min-height: calc(100vh - 140px);
+  margin-bottom: 0;
+  border-bottom: none;
+  box-shadow: none;
+}
+header {
+  background-color: #1a1a1a;
+  padding: 20px 0;
+  border-bottom: 2px solid gold;
+  position: relative;
+  z-index: 10;
+}
+
+.container {
+  width: 90%;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+h1 {
+  color: royalblue;
+}
+
+nav ul {
+  list-style: none;
+  display: flex;
+  gap: 15px;
+  margin: 0;
+  padding: 0;
+}
+
+nav a {
+  color: gold;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+nav a:hover {
+  color: royalblue;
+}
+
+.section {
+  padding: 40px 20px;
+}
+
+input[type=\"file\"] {
+  margin-top: 10px;
+  background-color: #222;
+  color: white;
+  border: 1px solid royalblue;
+  padding: 8px;
+  border-radius: 4px;
+}
+
+footer {
+  text-align: center;
+  padding: 20px;
+  background-color: #1a1a1a;
+  border-top: 2px solid gold;
+  flex-shrink: 0;      /* evita o footer encolher */
+  padding: 15px 20px;
+  text-align: center;
+  color: #ccc;
+  position: relative;
+  z-index: 10;
+}
+
+.text-box {
+  background-color: rgba(0, 0, 0, 0.4);
+  border-radius: 15px;
+  padding: 20px;
+  color: white;
+  max-width: 700px;
+  text-align: center;
+
+  /* Remover qualquer borda ou sombra indesejada */
+  border: none;
+  box-shadow: none;
+  margin-bottom: 0;
+}
+
+/* Menu Cascata */
+.menu {
+  list-style: none;
+  display: flex;
+  gap: 1px;
+  margin: 0;
+  padding: 0;
+  position: relative;
+  z-index: 1000; /* aumentar para garantir */
+  background-color: transparent;
+}
+
+.menu-item {
+  position: relative;
+}
+
+.menu a {
+  background-color: #333;
+  padding: 10px 15px;
+  border-radius: 5px;
+  color: gold;
+  text-decoration: none;
+  display: block;
+  transition: background-color 0.3s;
+}
+
+.menu a:hover {
+  background-color: royalblue;
+  color: white;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #222;
+  border: 1px solid #444;
+  border-radius: 5px;
+  min-width: 150px;
+  z-index: 10;
+}
+
+.menu-item.dropdown:hover .submenu,
+.menu-item.dropdown .submenu:hover {
+  display: block;
+}
+
+
+.submenu {
+  display: none;
+  position: absolute;
+  top: 100%;
+  left: 0;
+  background-color: #222;
+  border: 1px solid #444;
+  border-radius: 5px;
+  min-width: 150px;
+  z-index: 10;
+}
+
+.submenu a {
+  padding: 10px;
+  border-bottom: 1px solid #333;
+}
+
+.menu-item:hover .submenu {
+  display: block;
+}
+.menu-item {
+  position: relative;
+  margin-right: 1px; /* Espaçamento entre os itens */
+}
+
+.menu-item:last-child {
+  margin-right: 0; /* Evita espaço extra no final */
+}
+    body.loading main, body.loading footer, body.loading header {
+      display: none;
+    }
+    body.loaded .flash {
+      opacity: 1;
+    }
+
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('img/background_index.jpg') no-repeat center center;
+  background-size: cover;
+  z-index: -1;
+  pointer-events: none;
+}
