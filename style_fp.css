@@ -221,7 +221,7 @@ footer {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: url('background_index.jpg') no-repeat center center;
+  background: url('background_fanuel.jpg') no-repeat center center;
   background-size: cover;
   z-index: -1;
   pointer-events: none;
@@ -292,3 +292,50 @@ footer {
   max-width: 900px;
   margin: 40px auto; /* centraliza horizontalmente e dá margem vertical */
 }
+
+.hyperlinkstyle {
+  font-size: 1.2em;       /* Aumenta o tamanho da fonte */
+  font-weight: bold;
+  color: lightskyblue;    /* Azul claro */
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.hyperlinkstyle:hover {
+  color: red;
+}
+
+.hyperlinkref {
+  font-size: 1.2em;          /* Aumenta o tamanho da fonte */
+  font-weight: bold;
+  color: red;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.hyperlinkref:hover {
+  color: royalblue;
+}
+
+.voltar-btn {
+  margin: 20px auto 0 auto; /* margem superior e centralizado horizontalmente */
+  display: block;           /* para respeitar o margin auto horizontal */
+  background-color: rgba(0, 0, 0, 0.6);
+  color: gold;
+  font-weight: bold;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+  max-width: 150px;
+  text-align: center;
+}
+
+.voltar-btn:hover {
+  background-color: royalblue;
+  color: white;
+  transform: scale(1.05);
+}
+
+
