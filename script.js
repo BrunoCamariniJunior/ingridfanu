@@ -1,55 +1,22 @@
-const menuToggle = document.getElementById('menu-toggle');
-const menu = document.getElementById('menu');
-const dropdownItems = document.querySelectorAll('.menu-item.dropdown > a');
+var menuToggle = document.getElementById('menu-toggle');
+var menu = document.getElementById('menu');
+var dropdownItems = document.querySelectorAll('.menu-item.dropdown > a');
 
-menuToggle.addEventListener('click', () => {
+menuToggle.addEventListener('click', function () {
   menu.classList.toggle('active');
 });
 
-// Para abrir submenu no celular ao clicar no link do dropdown
-dropdownItems.forEach(item => {
-  item.addEventListener('click', e => {
+dropdownItems.forEach(function(item) {
+  item.addEventListener('click', function(e) {
     e.preventDefault();
-    const parent = item.parentElement;
+    var parent = item.parentElement;
     parent.classList.toggle('active');
   });
 });
 
-const searchInput = document.getElementById('search-input');
-const listItems = document.querySelectorAll('#ministracoes-list li');
+var backToTopBtn = document.getElementById('back-to-top');
 
-searchInput.addEventListener('input', () => {
-  const filter = searchInput.value.toLowerCase();
-
-  listItems.forEach(item => {
-    const text = item.textContent.toLowerCase();
-    if (text.includes(filter)) {
-      item.style.display = '';
-    } else {
-      item.style.display = 'none';
-    }
-  });
-});
-
-document.querySelectorAll('a').forEach(link => {
-  link.addEventListener('click', e => {
-    const href = link.getAttribute('href');
-
-    // Só para links internos
-    if (href && !href.startsWith('#') && !href.startsWith('http')) {
-      e.preventDefault();
-      document.body.classList.add('fade-out');
-
-      setTimeout(() => {
-        window.location.href = href;
-      }, 500); // tempo igual ao da transição no CSS
-    }
-  });
-});
-
-const backToTopBtn = document.getElementById('back-to-top');
-
-window.addEventListener('scroll', () => {
+window.addEventListener('scroll', function() {
   if (window.scrollY > 300) {
     backToTopBtn.style.display = 'block';
   } else {
@@ -57,24 +24,56 @@ window.addEventListener('scroll', () => {
   }
 });
 
-backToTopBtn.addEventListener('click', () => {
+backToTopBtn.addEventListener('click', function() {
   window.scrollTo({ top: 0, behavior: 'smooth' });
 });
 
-const cards = document.querySelectorAll('.card');
+var cards = document.querySelectorAll('.card');
 
-cards.forEach(card => {
-  card.addEventListener('mousemove', e => {
-    const rect = card.getBoundingClientRect();
-    const x = e.clientX - rect.left;
-    const y = e.clientY - rect.top;
+cards.forEach(function(card) {
+  card.addEventListener('mousemove', function(e) {
+    var rect = card.getBoundingClientRect();
+    var x = e.clientX - rect.left;
+    var y = e.clientY - rect.top;
 
-    card.style.setProperty('--x', `${x}px`);
-    card.style.setProperty('--y', `${y}px`);
+    card.style.setProperty('--x', x + "px");
+    card.style.setProperty('--y', y + "px");
   });
 
-  card.addEventListener('mouseleave', () => {
+  card.addEventListener('mouseleave', function() {
     card.style.removeProperty('--x');
     card.style.removeProperty('--y');
+  });
+});
+
+document.addEventListener("DOMContentLoaded", function () {
+  var versiculos = {
+    "2timoteo467": "⁶ Eu já estou sendo derramado como uma oferta de bebida. Está próximo o tempo da minha partida. ⁷ Combati o bom combate, terminei a corrida, guardei a fé.",
+	"2timoteo22": "² E as coisas que me ouviu dizer na presença de muitas testemunhas, confie a homens fiéis que sejam também capazes de ensinar a outros.",
+  };
+
+  var links = document.querySelectorAll(".hyperlinkstyle[data-ref]");
+  var modal = document.getElementById("bible-modal");
+  var modalText = document.getElementById("bible-text");
+  var closeBtn = document.querySelector(".close-btn");
+
+  links.forEach(function(link) {
+    link.addEventListener("click", function (e) {
+      e.preventDefault();
+      var ref = link.getAttribute("data-ref");
+      var texto = versiculos[ref] || "Versículo não encontrado.";
+      modalText.textContent = texto;
+      modal.style.display = "block";
+    });
+  });
+
+  closeBtn.addEventListener("click", function() {
+    modal.style.display = "none";
+  });
+
+  window.addEventListener("click", function(e) {
+    if (e.target === modal) {
+      modal.style.display = "none";
+    }
   });
 });

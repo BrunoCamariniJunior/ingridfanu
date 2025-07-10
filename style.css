@@ -3,8 +3,6 @@ html, body {
   margin: 0;
   font-family: 'Book Antiqua', Georgia, serif;
   color: white;
-  opacity: 1;
-  transition: opacity 0.5s ease;
   /* background-color: black; */ /* removido */
   display: flex;
   flex-direction: column;
@@ -12,8 +10,64 @@ html, body {
 
 }
 
-body.fade-out {
-  opacity: 0;
+.background-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('background_index.jpg') no-repeat center center;
+  background-size: cover;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.background-container_JP {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('background_julian.jpg') no-repeat center center;
+  background-size: cover;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.background-container_FP {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('background_fanuel.jpg') no-repeat center center;
+  background-size: cover;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.background-container_PrM {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('background_matias.jpg') no-repeat center center;
+  background-size: cover;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.background-container_ots {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: url('background_outros.jpg') no-repeat center center;
+  background-size: cover;
+  z-index: -1;
+  pointer-events: none;
 }
 
 main {
@@ -165,6 +219,17 @@ footer {
 
 /* Responsivo: até 768px */
 @media (max-width: 768px) {
+
+	header .container {
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  }
+	.titulo-site {
+    font-size: 1.5em;
+    margin-bottom: 10px;
+    text-align: center;
+  }
   /* Faz o container do nav virar coluna */
   nav {
     display: flex;
@@ -179,12 +244,43 @@ footer {
     width: 40px;
     font-size: 30px;
     margin-bottom: 10px; /* espaçamento para o menu */
+    align-self: center; /* centraliza horizontalmente no container em coluna */
   }
 
   /* Menu inicialmente escondido, fica 100% largura abaixo */
   .menu {
     display: none;
     flex-direction: column;
+	align-items: center;
+    width: 100%;
+  }
+	
+.menu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+  }
+	
+.menu-toggle {
+    margin-bottom: 10px;
+	align-self: center;
+    display: block;
+  }
+	
+.menu-item {
+    width: 100%;
+    text-align: center;
+  }
+	
+	.submenu {
+    position: static;
+    width: 100%;
+    text-align: center;
+  }
+	
+	.submenu a {
+    display: block;
     width: 100%;
   }
 
@@ -215,18 +311,6 @@ footer {
 }
 
 
-.background-container {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background: url('background_index.jpg') no-repeat center center;
-  background-size: cover;
-  z-index: -1;
-  pointer-events: none;
-}
-
 #back-to-top {
   position: fixed;
   bottom: 40px;
@@ -243,10 +327,20 @@ footer {
   opacity: 0.7;
   transition: opacity 0.3s;
   z-index: 1000;
+  outline: none;
+  -webkit-tap-highlight-color: transparent; /* remove o efeito do toque no mobile */
+  user-select: none; /* evita seleção acidental */
 }
 
 #back-to-top:hover {
   opacity: 1;
+}
+
+#back-to-top:focus {
+  outline: none;       /* Remove a borda azul do foco */
+  caret-color: transparent; /* Remove o cursor de texto */
+  outline: none;
+  box-shadow: none; /* remove sombra de foco se tiver */
 }
 
 .cards-container {
@@ -291,4 +385,85 @@ footer {
   gap: 20px;
   max-width: 900px;
   margin: 40px auto; /* centraliza horizontalmente e dá margem vertical */
+}
+
+.hyperlinkref {
+  font-size: 1.2em;         /* deixa o link maior */
+  color: red;               /* cor padrão do link */
+  font-weight: bold;        /* deixa o texto em negrito */
+  text-decoration: none;    /* remove o sublinhado */
+  transition: color 0.3s;   /* transição suave ao passar o mouse */
+}
+
+.hyperlinkref:hover {
+  color: lightblue;         /* cor ao passar o mouse */
+}
+
+.hyperlinkstyle {
+  font-size: 1.2em;         /* mesmo tamanho que o outro */
+  color: lightblue;         /* azul claro padrão */
+  font-weight: bold;        /* negrito */
+  text-decoration: none;    /* sem sublinhado */
+  transition: color 0.3s;   /* transição suave */
+}
+
+.hyperlinkstyle:hover {
+  color: red;               /* vermelho ao passar o mouse */
+}
+
+/* Modal fundo */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1001;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  backdrop-filter: blur(3px);
+}
+
+.modal-content {
+  background-color: #111;
+  margin: 10% auto;
+  padding: 20px;
+  border-radius: 10px;
+  border: 2px solid gold;
+  width: 80%;
+  max-width: 600px;
+  color: white;
+  position: relative;
+  box-shadow: 0 0 10px gold;
+}
+
+.close-btn {
+  color: gold;
+  position: absolute;
+  top: 10px;
+  right: 15px;
+  font-size: 28px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.close-btn:hover {
+  color: red;
+}
+
+.voltar-btn {
+  margin-top: 20px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: gold;
+  font-weight: bold;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.3s, transform 0.2s;
+}
+.voltar-btn:hover {
+  background-color: royalblue;
+  color: white;
+  transform: scale(1.05);
 }
