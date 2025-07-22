@@ -16,7 +16,7 @@ html, body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: url('background_index.jpg') no-repeat center center;
+  background: url('img/background_index.jpg') no-repeat center center;
   background-size: cover;
   z-index: -1;
   pointer-events: none;
@@ -28,7 +28,7 @@ html, body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: url('background_julian.jpg') no-repeat center center;
+  background: url('img/background_julian.jpg') no-repeat center center;
   background-size: cover;
   z-index: -1;
   pointer-events: none;
@@ -52,7 +52,7 @@ html, body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: url('background_matias.jpg') no-repeat center center;
+  background: url('img/background_matias.jpg') no-repeat center center;
   background-size: cover;
   z-index: -1;
   pointer-events: none;
@@ -64,7 +64,7 @@ html, body {
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: url('background_outros.jpg') no-repeat center center;
+  background: url('img/background_outros.jpg') no-repeat center center;
   background-size: cover;
   z-index: -1;
   pointer-events: none;
